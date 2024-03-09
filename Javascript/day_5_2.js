@@ -56,7 +56,15 @@ const catregoryfilters = ['gadgets']
 const priceFilter = {min: 10000, max: 50000}
 const colorFilter = ['black', 'white']
 
+const addedToCard = [423423443, 123312314]
+
 const filteredItems = product.filter(pdt => catregoryfilters.includes(pdt.category) && (pdt.price >= priceFilter.min && pdt.price <= priceFilter.max) && colorFilter.includes(pdt.specifications.color))
 
-console.log(filteredItems)
+
+const cartTotalPrice = product.filter(pdt => addedToCard.includes(pdt.id)).reduce((totalPrice, pdt) => totalPrice + pdt.price, 0)
+
+const filteredItemTotalPrice = filteredItems.reduce((totalPrice, item) => totalPrice + item.price, 0)
+
+console.log(cartTotalPrice)
+console.log(filteredItemTotalPrice)
 
