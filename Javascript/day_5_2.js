@@ -67,4 +67,3 @@ const filteredItemTotalPrice = filteredItems.reduce((totalPrice, item) => totalP
 
 console.log(cartTotalPrice)
 console.log(filteredItemTotalPrice)
-
