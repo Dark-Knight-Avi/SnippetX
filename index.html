@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="padding: 0px; margin: 0px;">
+    <div id="root"
+        style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; height: 100vh;">
+    </div>
+    <script>
+        let rootDiv = document.getElementById("root");
+        let urls = [
+            'https://images.unsplash.com/photo-1490806143138-9569998d0557?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxMDMyMTM0MA&ixlib=rb-4.0.3&q=80&w=1080',
+            'https://images.unsplash.com/photo-1489436193448-b14b6ca64e79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxMDMyMTM3NA&ixlib=rb-4.0.3&q=80&w=1080',
+            'https://images.unsplash.com/photo-1493666107210-bda7d52b74dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxMDMyMTQwMA&ixlib=rb-4.0.3&q=80&w=1080'
+        ]
+        const removeImg = (e, url) => {
+            console.log('clicked', url)
+            rootDiv.style.backgroundImage = `url(${url})`
+            rootDiv.style.backgroundSize = 'cover'
+            e.target.remove()
+        }
+        for (let url of urls) {
+            let newElemnt = document.createElement('img')
+            newElemnt.class = url
+            newElemnt.src = url
+            newElemnt.alt = "Image"
+            newElemnt.height = "300"
+            newElemnt.width = "300"
+            newElemnt.onclick = (e) => removeImg(e, url)
+            rootDiv.appendChild(newElemnt)
+        }
+    </script>
+</body>
+
+</html>
